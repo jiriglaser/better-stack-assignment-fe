@@ -1,0 +1,186 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./tsconfig.eslint.json",
+        "sourceType": "module"
+      },
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript",
+        "plugin:jest/recommended",
+        "plugin:eslint-comments/recommended",
+        "plugin:jsdoc/recommended",
+        "airbnb-typescript/base"
+      ],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "^_",
+            "ignoreRestSiblings": true
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "bs",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "bs",
+            "style": "kebab-case"
+          }
+        ],
+        "no-void": [
+          "error",
+          {
+            "allowAsStatement": true
+          }
+        ],
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            "devDependencies": true,
+            "optionalDependencies": true,
+            "peerDependencies": true
+          }
+        ],
+        "eslint-comments/disable-enable-pair": [
+          "error",
+          { "allowWholeFile": true }
+        ],
+
+        /***************************
+        ***   STYLISTIC RULES   ***
+        ***************************/
+        // https://eslint.org/docs/rules/#stylistic-issues
+        "brace-style": ["error", "1tbs"],
+        "comma-dangle": ["error", "always-multiline"],
+        "eol-last": "error",
+        "id-denylist": [
+          "error",
+          "any",
+          "Number",
+          "number",
+          "String",
+          "string",
+          "Boolean",
+          "boolean",
+          "Undefined",
+          "undefined"
+        ],
+        "id-match": "error",
+        "linebreak-style": ["error", "unix"], // force LF line endings, disallow CRLF
+        "max-len": [
+          "error",
+          {
+            "code": 200,
+            "tabWidth": 2,
+            "ignoreUrls": true,
+            "ignoreComments": false,
+            "ignoreRegExpLiterals": true,
+            "ignoreStrings": true,
+            "ignoreTemplateLiterals": true
+          }
+        ],
+        "new-parens": "error",
+        "no-bitwise": "error",
+        "no-mixed-spaces-and-tabs": "error",
+        "no-multiple-empty-lines": "error",
+        "no-plusplus": "error",
+        "no-restricted-syntax": [
+          "error", {
+            "selector": "ForInStatement",
+            "message": "for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array."
+          }, {
+            "selector": "LabeledStatement",
+            "message": "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand."
+          }, {
+            "selector": "WithStatement",
+            "message": "`with` is disallowed in strict mode because it makes code impossible to predict and optimize."
+          }
+        ],
+        "no-trailing-spaces": "error",
+        "one-var": ["error", "never"],
+        "quote-props": ["error", "consistent-as-needed"],
+        "quotes": "off",
+        "semi": "off",
+        "sort-keys": "off",
+        "space-before-function-paren": [
+          "error",
+          {
+            "anonymous": "never",
+            "asyncArrow": "always",
+            "named": "never"
+          }
+        ],
+        "spaced-comment": [
+          "error",
+          "always",
+          {
+            "line": {
+              "exceptions": ["-", "+"],
+              "markers": ["=", "!", "/"]
+            },
+            "block": {
+              "exceptions": ["-", "+"],
+              "markers": ["=", "!", ":", "::"],
+              "balanced": true
+            }
+          }
+        ],
+        "@typescript-eslint/quotes": [
+          "error",
+          "single",
+          {
+            "avoidEscape": true
+          }
+        ],
+        // import plugin: https://github.com/benmosher/eslint-plugin-import
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              ["builtin", "external"],
+              "internal",
+              ["parent", "sibling", "index", "object", "unknown"]
+            ],
+            "newlines-between": "always",
+            "alphabetize": { "order": "asc" }
+          }
+        ],
+        "import/newline-after-import": "error",
+        "import/no-unassigned-import": "error"
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+$desktop-width: 800px;
+
+.page-container {
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: calc($desktop-width - 2 * var(--spacing-xl));
+  margin: var(--spacing-xl) var(--spacing-md);
+  gap: var(--spacing-md);
+
+  > .header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    > :last-child {
+      margin-left: auto;
+    }
+  }
+
+  > :first-child {
+    margin-top: var(--spacing-md);
+  }
+}
+
+@media only screen and (min-width: $desktop-width) {
+  .page-container {
+    position: relative;
+    left: 50%;
+    margin-left: calc(-0.5 * $desktop-width + var(--spacing-xl));
+    margin-right: var(--spacing-xl);
+  }
+}
